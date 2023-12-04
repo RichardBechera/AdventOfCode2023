@@ -13,11 +13,10 @@ let rec toDigits (line: string) = function
     | _ -> failwith "Index out of range."
 
 let getTheNumber (line: string) =
-    printf $"line: {line}"
     let digits = toDigits line 0 |> Seq.filter Char.IsDigit |> Seq.map charToInt
-    let result = match digits with | d when Seq.isEmpty d -> 0 | _ -> Seq.head digits * 10 + Seq.last digits
-    printfn $", digits: {result}"
-    result
+    match digits with
+    | d when Seq.isEmpty d -> 0
+    | _ -> Seq.head digits * 10 + Seq.last digits
     
 let trebuchet filePath =
     if System.IO.File.Exists filePath then 
