@@ -1,6 +1,6 @@
 open System
 
-let charToInt = int >> (+) (- int '0')  
+let charToInt = int >> (+) (- int '0')
 
 let getTheNumber (line: string) =
     let digits = Seq.filter Char.IsDigit line |> Seq.map charToInt
